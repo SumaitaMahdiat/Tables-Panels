@@ -17,25 +17,22 @@ body {
 }
 
 header {
-  padding: 0 10vh;
-  justify-content: center;
-  align-items:flex-start;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Align items to the top */
   width: 100%;
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
+.nav_logo h1 {
+  font-size: 4rem;
+  color: white;
+  margin: 0;
 }
 
 .nav_logo h1 a {
-  color: white;
   text-decoration: none;
-  font-size: 4rem;
-  margin: 0;
-  font-weight: 500;
+  color: inherit; /* Inherit color from the h1 */
+  font-weight: bold;
 }
 
 .nav_link {
@@ -50,7 +47,7 @@ nav {
 .nav_link a {
   color: white;
   text-decoration: none;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
@@ -66,7 +63,7 @@ main {
   width: 100%;
 }
 
-/*.login_box,
+.login_box,
 .add_student_box {
   max-width: 400px;
   width: 100%;
@@ -86,7 +83,7 @@ main {
   margin-bottom: 20px;
   text-align: center;
   font-weight: 500;
-}*/
+}
 
 .login_form,
 .add_student_form {
@@ -97,15 +94,16 @@ main {
 .login_form input[type="text"],
 .login_form input[type="password"],
 .login_form input[type="submit"],
-/*.add_student_form input[type="text"] {
+.add_student_form input[type="text"] {
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-}*/
+}
+
 .login_form input[type="submit"],
-/*.add_student_form input[type="submit"] {
+.add_student_form input[type="submit"] {
   background-color: black;
   color: white;
   border: none;
@@ -114,11 +112,41 @@ main {
   font-size: 16px;
   padding: 16px;
 }
-*/
+
 .login_form input[type="submit"]:hover,
-/*.add_student_form input[type="submit"]:hover {
+.add_student_form input[type="submit"]:hover {
   background-color: rgb(26, 26, 26);
-}*/
+}
+.login_form input[type="Sign Up"],
+.add_student_form input[type="Sign Up"] {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 16px;
+}
+
+.login_form input[type="Sign Up"]:hover,
+.add_student_form input[type="Sign Up"]:hover {
+  background-color: rgb(26, 26, 26);
+}
+.login_box button {
+  background-color:black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 16px;
+  width: 100%; /* Ensures the button matches the input width */
+  margin-top: 20px; /* Optional: Adds spacing above the button */
+}
+
+.login_box button:hover {
+  background-color: rgb(0, 0, 0);
+}
 
 .students {
   max-width: 800px;
@@ -179,6 +207,12 @@ main {
   margin: 10px 0px;
   float: right;
   padding: 10px;
+}
+
+.btn:hover {
+  background: #f5f5f5;
+  text-decoration: none;
+}
 }
 
 .btn:hover {
