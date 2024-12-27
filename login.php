@@ -1,10 +1,13 @@
 <?php
-require_once('DBconnect.php');
 
-if(isset($_POST['Name']) && isset($_POST['Password'])){
-    $username = $_POST['Name'];
-    $password = $_POST['Password'];
-    $sql = "SELECT * FROM users WHERE Name = '$username' AND Password = '$password'";
+require_once('dbconnection.php');
+
+if(isset($_POST['loginid']) && isset($_POST['password'])){
+    $loginid = $_POST['loginid'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM reader WHERE (Name = '$loginid' OR Email = '$loginid') AND Password = '$password'";
+
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result) > 0){
