@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haikyu!!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .header {
+            background-color: #520fbe;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .header .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .header .nav a:hover {
+            background-color: #444444;
+        }
+
+        .header .actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header .actions input[type="text"] {
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .header .actions button {
+            padding: 5px 10px;
+            background-color: #070808;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .header .actions button:hover {
+            background-color: #596168;
+        }
+
+        .sub-header {
+            background-color: #b40ce3;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sub-header .breadcrumb {
+            font-size: 14px;
+        }
+
+        .sub-header .breadcrumb a {
+            color: #ddd;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .sub-header .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            
+            
+            padding: 20px;
+            background: #c5e3df;
+            box-shadow: 0 4px 8px rgba(148, 216, 222, 0.1);
+            border-radius: 8px;
+        }
+
+        .title-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .title-section img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .title-details {
+            flex: 1;
+        }
+
+        .title-details h1 {
+            font-size: 28px;
+            margin: 0 0 10px;
+        }
+
+        .title-details p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .metadata {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .metadata span {
+            background-color: #e5e5e5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .action-buttons {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-buttons button {
+            padding: 10px 15px;
+            background-color: #121314;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .action-buttons button:hover {
+            background-color: #6b7278;
+        }
+
+        .playlist-dropdown select {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+
+        .description h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .chapter-list {
+            margin-top: 30px;
+        }
+
+        .chapter-list h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .chapter-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .chapter-list ul li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .chapter-list ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .chapter-list ul li a:hover {
+            color: #0073e6;
+        }
+
+        .Review-section {
+            margin-top: 30px;
+        }
+
+        .Review-section h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .Review-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .Review-section button {
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .Review-section button:hover {
+            background-color: #005bb5;
+        }
+
+        .Review-section .review {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .Review-section .review p {
+            margin: 5px 0;
+        }
+
+        .Review-section .review .author {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Tales and Panels</div>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">Genres</a>
+            <a href="#">My Bookmarks</a>
+            <a href="#">My Profile</a>
+        </div>
+        <div class="actions">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+    </div>
+
+    <div class="sub-header">
+        <div class="breadcrumb">
+            <a href="#">Home</a> &gt;
+            <a href="#">Sports</a> &gt;
+            <span>Haikyu!!</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="title-section">
+            <img src="c:\Users\LENOVO\Downloads\images.jpg" alt="Haikyu!! Cover">
+            <div class="title-details">
+                <h1>Haikyu!!</h1>
+                <p><strong>Author:</strong> furudate haruichi(Story&Art) </p>
+                <div class="metadata">
+                    <span>Rating: 4.5</span>
+                    <span>Genres: Sports</span>
+                </div>
+                <div class="action-buttons">
+                    <button>Vote</button>
+                    <button>Bookmark</button>
+                    <div class="playlist-dropdown">
+                        <select>
+                            <option>song1</option>
+                            <option>song2</option>
+                            <option>song3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Description</h2>
+            <p>Hinata Shouyou, upon seeing a volleyball match, is aiming to become "The Small Giant", and joins his middle school volleyball club. After finding new members, they set out for the middle school tournament, where they've cross paths with a formidable school with the "King of the Upper Court", Kageyama Tobio.</p>
+        </div>
+
+        <div class="chapter-list">
+            <h2>Chapters</h2>
+            <ul>
+                <li><a href="#">Chapter 1</a></li>
+                <li><a href="#">Chapter 2</a></li>
+                <li><a href="#">Chapter 3</a></li>
+                <li><a href="#">Chapter 4</a></li>
+                <li><a href="#">Chapter 5</a></li>
+                <li><a href="#">Chapter 6</a></li>
+                <li><a href="#">Chapter 7</a></li>
+                <li><a href="#">Chapter 8</a></li>
+                <li><a href="#">Chapter 9</a></li>
+                <li><a href="#">Chapter 10</a></li>
+            </ul>
+        </div>
+
+        <div class="Review-section">
+            <h2>Review</h2>
+            <textarea placeholder="Write your review..."></textarea>
+            <button>Post review</button>
+
+            <div class="review">
+                <p class="author">User1:</p>
+                <p>Loved the story so far!</p>
+            </div>
+            <div class="review">
+                <p class="author">User2:</p>
+                <p>Can’t wait for the next chapter!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
