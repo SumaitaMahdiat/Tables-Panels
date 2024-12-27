@@ -12,8 +12,7 @@
     />
     <title>Tales & Panels</title>
   </head>
-  
-  <body> 
+  <body>
     <header>
       <nav>
         <div class="nav_logo">
@@ -32,9 +31,9 @@
           <form class="login_form" action="login.php" method="post">
             <input
               type="text"
-              id="login_id"
-              name="login_id"
-              placeholder="username or email"
+              id="username"
+              name="username"
+              placeholder="username or password"
             />
             <input
               type="password"
@@ -44,10 +43,10 @@
             />
             <input type="submit" value="Submit" />
           </form>
-       
-          <p class="recover">
-            <a href="#"> forgot password?</a>
-        </p>
+          <div class="links">
+            <p>Don't Have an account?</p>
+            <a href="sign_up.php"><button id="SignUpButton">Sign up</button></a>
+          </div>
         </div>
       </section>
     </main>
