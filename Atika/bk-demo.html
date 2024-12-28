@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tales and Panels - Bookmarked Manga</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #d1c4c9;
+            color: #fff;
+        }
+
+        .header {
+            background-color: #4527a0;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .header .nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header .nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .header .nav a:hover {
+            color: #d1c4c9;
+        }
+        .genre-dropdown select {
+            padding: 10px;
+            background-color: #121314;
+            color: #fff;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .bookmark-dropdown select {
+            padding: 10px;
+            background-color: #121314;
+            color: #fff;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .header .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header input[type="text"] {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #fff;
+        }
+
+        .header button {
+            padding: 8px 12px;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .header button:hover {
+            background-color: #d1c4c9;
+        }
+        .profile-dropdown select {
+            padding: 10px;
+            background-color: #121314;
+            color: #fff;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .sub-header {
+            background-color: #7e57c2;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sub-header .breadcrumb {
+            font-size: 14px;
+        }
+
+        .sub-header .breadcrumb a {
+            color: #ddd;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .sub-header .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .main-content .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .manga-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .manga-item {
+            width: calc(33.333% - 10px);
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .manga-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .manga-item .info {
+            padding: 10px;
+        }
+
+        .manga-item .info h4 {
+            font-size: 16px;
+            margin: 0 0 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .manga-item .info p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .manga-item {
+                width: calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .manga-item {
+                width: 100%;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .main-content {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Tales and Panels</div>
+        <div class="nav">
+            <a href="#">Home</a>
+            
+            
+            
+        </div>
+        <div class="bookmark-dropdown">
+            
+            <select>
+
+                <option>My Bookmarks</option>
+                <option>Manga</option>
+                <option>Novel</option>
+                
+            </select>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Manga...">
+            <button>Search</button>
+        </div>
+        <div class="profile-dropdown">
+            
+            <select>
+
+                <option>My Profile</option>
+                <option>name</option>
+                <option>email</option>
+                <option>change password</option>
+                <option>logout</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="sub-header">
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+           
+            
+        </div>  
+    </div>
+
+    <div class="container">
+       
+        <div class="main-content">
+            <div class="title">Bookmarked Manga</div>
+            <div class="manga-list">
+                <div class="manga-item">
+                    <img src="https://via.placeholder.com/150" alt="Manga 1">
+                    <div class="info">
+                        <h4>Manga Title 1</h4>
+                        <p>Updated 1 hour ago</p>
+                    </div>
+                </div>
+                <div class="manga-item">
+                    <img src="https://via.placeholder.com/150" alt="Manga 2">
+                    <div class="info">
+                        <h4>Manga Title 2</h4>
+                        <p>Updated 2 hours ago</p>
+                    </div>
+                </div>
+                <div class="manga-item">
+                    <img src="https://via.placeholder.com/150" alt="Manga 3">
+                    <div class="info">
+                        <h4>Manga Title 3</h4>
+                        <p>Updated 3 hours ago</p>
+                    </div>
+                </div>
+                <div class="manga-item">
+                    <img src="https://via.placeholder.com/150" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                        <p>Updated 4 hours ago</p>
+                    </div>
+                </div>
+                <div class="manga-item">
+                    <img src="https://via.placeholder.com/150" alt="Manga 5">
+                    <div class="info">
+                        <h4>Manga Title 5</h4>
+                        <p>Updated 5 hours ago</p>
+                    </div>
+                </div>
+                <div class="manga-item">
+                    <img src="https://via.placeholder.com/150" alt="Manga 6">
+                    <div class="info">
+                        <h4>Manga Title 6</h4>
+                        <p>Updated 6 hours ago</p>
+            
+                   </div>
+                </div>
+                <div class="manga-item">
+                    <img src="https://via.placeholder.com/150" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                        <p>Updated 4 hours ago</p>
+                    </div>
+                </div>
+                <div class="manga-item">
+                    <img src="https://via.placeholder.com/150" alt="Manga 5">
+                    <div class="info">
+                        <h4>Manga Title 5</h4>
+                        <p>Updated 5 hours ago</p>
+                    </div>
+                </div>
+                <div class="manga-item">
+                    <img src="https://via.placeholder.com/150" alt="Manga 6">
+                    <div class="info">
+                        <h4>Manga Title 6</h4>
+                        <p>Updated 6 hours ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tales and Panels - Read Manga and Novel Online</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #d1c4c9;
+            color: #fff;
+        }
+
+        .header {
+            background-color: #4527a0;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .header .nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header .nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .header .nav a:hover {
+            color: #d1c4c9;
+        }
+        .bookmark-dropdown select {
+            padding: 10px;
+            background-color: #121314;
+            color: #fff;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .header .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header input[type="text"] {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #fff;
+        }
+
+        .header button {
+            padding: 8px 12px;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .header button:hover {
+            background-color: #d1c4c9;
+        }
+        .profile-dropdown select {
+            padding: 10px;
+            background-color: #121314;
+            color: #fff;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .sub-header {
+            background-color: #7e57c2;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sub-header .breadcrumb {
+            font-size: 14px;
+        }
+
+        .sub-header .breadcrumb a {
+            color: #ddd;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .sub-header .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            background-image: url('https://via.placeholder.com/1920x400');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .card {
+            background-color: #7e57c2;
+            border-radius: 8px;
+            overflow: hidden;
+            width: calc(25% - 15px);
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card .info {
+            padding: 10px;
+        }
+
+        .card .info h4 {
+            font-size: 16px;
+            margin: 0 0 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card .info p {
+            font-size: 14px;
+            color: #bbb;
+            margin: 0;
+        }
+
+        .footer {
+            background-color: #232323;
+            padding: 15px 20px;
+            text-align: center;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 100%;
+            }
+
+            .header .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Tales and Panels</div>
+        <div class="nav">
+            <a href="#">Home</a>
+                       
+        </div>
+        <div class="bookmark-dropdown">
+            
+            <select>
+
+                <option>My Bookmarks</option>
+                <option>Manga</option>
+                <option>Novel</option>
+                
+            </select>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Manga...">
+            <button>Search</button>
+        </div>
+        <div class="profile-dropdown">
+            
+            <select>
+
+                <option>My Profile</option>
+                <option>name</option>
+                <option>email</option>
+                <option>change password</option>
+                <option>logout</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="sub-header">
+        <div class="breadcrumb">
+            <a href="#">Home</a> &gt;
+            
+            <span>My Bookmarks-Manga</span>
+            
+           
+            
+        </div>  
+    </div>
+
+    <div class="banner">
+        <h1>Welcome to Tales and Panels</h1>
+        
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Popular Manga</h2>
+            <div class="card-list">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 1">
+                    <div class="info">
+                        <h4>Manga Title 1</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 2">
+                    <div class="info">
+                        <h4>Manga Title 2</h4>
+                       
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 3">
+                    <div class="info">
+                        <h4>Manga Title 3</h4>
+                       
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                       
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                      
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                     
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Manga 4">
+                    <div class="info">
+                        <h4>Manga Title 4</h4>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Popular Novels</h2>
+            <div class="card-list">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Novel 5">
+                    <div class="info">
+                        <h4>Novel Title 5</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Novel 6">
+                    <div class="info">
+                        <h4>Novel Title 6</h4>
+                       
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Novel 7">
+                    <div class="info">
+                        <h4>Novel Title 7</h4>
+                     
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Novel 8">
+                    <div class="info">
+                        <h4>Novel Title 8</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Novel 8">
+                    <div class="info">
+                        <h4>Novel Title 8</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Novel 8">
+                    <div class="info">
+                        <h4>Novel Title 8</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Novel 8">
+                    <div class="info">
+                        <h4>Novel Title 8</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Novel 8">
+                    <div class="info">
+                        <h4>Novel Title 8</h4>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x300" alt="Novel 8">
+                    <div class="info">
+                        <h4>Novel Title 8</h4>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Tales and Panels. All rights reserved.
+    </div>
+</body>
+</html>
