@@ -14,6 +14,7 @@ if(isset($_GET['search'])){
         // echo "Let him enter";
         while ($row = $result->fetch_assoc())
           echo "<li><strong>Name:</strong></li>";
+          header("Location: manga page.html")
     }
     else{
         echo "Title not found.";
