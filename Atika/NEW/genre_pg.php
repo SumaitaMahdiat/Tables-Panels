@@ -3,7 +3,7 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$dbname = 'tales';
+$dbname = 'tales_panels';
 
 $conn = new mysqli($host, $user, $password, $dbname);
 
