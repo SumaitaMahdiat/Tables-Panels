@@ -1,5 +1,5 @@
 
-            /* Include your previous CSS here */
+                      /* Include your previous CSS here */
             * {box-sizing: border-box;}
             body {
                 font-family: "Fredoka", sans-serif;
@@ -226,5 +226,89 @@
                 background-color: black;
                 color: white;
                 text-align: center;
-                padding: 10px 0;
+                padding: 0;  /* Remove extra padding */
+                font-size: 10px;  /* Small font size */
+                line-height: 1;  /* Reduce line height to make it more compact */
             }
+            
+manga-result {
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .manga-item {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+            }
+            
+/* Manga item images */
+.manga-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border: 3px solid #ccc; /* Add border to images */
+   border-radius: 8px; /* Optional: rounded corners for the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for the image */
+}
+
+            
+            .manga-info {
+                font-size: 16px;
+            }
+            
+            .manga-info h3 {
+                margin: 0;
+                font-size: 18px;
+                color: #333;
+            }
+            
+            .manga-info p {
+                margin: 5px 0;
+                color: #555;
+            }
+/* Manga Item Layout */
+.manga-item {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.manga-left {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border: 3px solid #ccc; /* Add border to images */
+   border-radius: 8px; /* Optional: rounded corners for the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for the image */
+}
+.manga-left {
+    margin-right: 20px;
+}
+
+.manga-cover {
+    width: 120px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.manga-right a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.manga-right a:hover {
+    color: #1abc9c;
+    text-decoration: underline;
+}
+
+.manga-right p {
+    font-size: 14px;
+    color: #777;
+}           
