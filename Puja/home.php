@@ -4,204 +4,8 @@
 <title>Page Title</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {box-sizing: border-box;}
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-.header {
-  padding: 10px; /* some padding */
-  text-align: center; /* center the text */
-  background: #1abc9c; /* green background */
-  color: white; /* white text color */
-}
+<link rel="stylesheet" href="css/style_home.css" />
 
-/* Increase the font size of the <h1> element */
-.header h1 {
-  font-size: 40px;
-}
-/* Navbar container */
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial;
-}
-
-/* Links inside the navbar */
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-/* The dropdown container */
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
-}
-
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown a.right {
-  float: right; /* Float a link to the right */
-}
-
-
-/* Right-aligned link */
-.navbar a.right {
-  float: right; /* Float a link to the right */
-}
-
-.topnav a.active {
-  background-color: #2196F3;
-  color: white;
-}
-
-.topnav .search-container {
-    float: right;
-  
-}
-
-.topnav input[type=text] {
-  padding: 6px;
-  /*margin-top: 8px;*/
-  font-size: 17px;
-  border: none;
-  width: 100%;
-  margin: 0;
-  
-}
-
-.topnav .search-container button {
-  float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-
-.topnav .search-container button:hover {
-  background: #ccc;
-}
-
-/* Style the list */
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
-  background-color: #eee;
-}
-
-/* Display list items side by side */
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
-}
-
-/* Add a slash symbol (/) before/behind each list item */
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: "/\00a0";
-}
-
-/* Add a color to all links inside the list */
-ul.breadcrumb li a {
-  color: #0275d8;
-  text-decoration: none;
-}
-
-/* Add a color on mouse-over */
-ul.breadcrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
-}
-
-.row {
-  display: flex;
-  height: 100%;
-}
-
-.column {
-  flex: 50%;
-  padding: 10px;
-  height: 100%;
- 
-}
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
-}
-
-
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
-    width: 100%;
-  }
-}
-
-
-</style>
 </head>
 <body>
 
@@ -224,17 +28,17 @@ ul.breadcrumb li a:hover {
       <div class="dropdown-content">
         <a href="genre_pg.php?genre=Fantasy">Fantasy</a>
         <a href="genre_pg.php?genre=Comedy">Comedy</a>
-        <a href="genre_pg.php?genre=Fantasy">Sports</a>
-        <a href="genre_pg.php?genre=Fantasy">Romance</a>
-        <a href="genre_pg.php?genre=Fantasy">Action</a>
-        <a href="genre_pg.php?genre=Fantasy">Horror</a>                 
+        <a href="genre_pg.php?genre=Sports">Sports</a>
+        <a href="genre_pg.php?genre=Romance">Romance</a>
+        <a href="genre_pg.php?genre=Action">Action</a>
+        <a href="genre_pg.php?genre=Horror">Horror</a>                 
       </div>
     </div>
     <div class="dropdown">
       <button class="dropbtn">My Bookmarks</button>
       <div class="dropdown-content">
-        <a href="#">Manga</a>
-        <a href="#">Novel</a>       
+        <a href="bookmarked_manga_pg.html">Manga</a>
+        <a href="bookmarked_novel_pg.html">Novel</a>       
       </div>
     </div>
    
@@ -246,12 +50,12 @@ ul.breadcrumb li a:hover {
         <a href="C:\xampp\htdocs\tables\370-project\Change password\change_pw.html">Change Password</a>
       </div>
     </div>
-    <div class="search-container" style="float:right">
-      <form action="/action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit">Go</button>
-      </form>
-    </div>
+    <div class="search-container">
+            <form action="search.php" method="GET">
+                <input type="text" placeholder="Search for Manga.." name="query" required>
+                <button type="submit">Go</button>
+            </form>
+        </div>
   </div>  
 
 
