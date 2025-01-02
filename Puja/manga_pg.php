@@ -58,7 +58,15 @@ if ($manga) {
                 <a href="genre_pg.php?genre=Horror">Horror</a>
             </div>
         </div>
+        <div class="dropdown">
+      <button class="dropbtn">My Bookmarks</button>
+      <div class="dropdown-content">
+        <a href="bookmarked_manga_pg.html">Manga</a>
+        <a href="bookmarked_novel_pg.html">Novel</a>       
+      </div>
+    </div>
         <a href="logout.php" class="right">Log Out</a>
+
         <div class="search-container">
             <form action="search.php" method="GET">
                 <input type="text" placeholder="Search for Manga.." name="query" required>
@@ -119,3 +127,4 @@ if ($manga) {
     echo "Invalid manga name.";
 }
 ?>
+
