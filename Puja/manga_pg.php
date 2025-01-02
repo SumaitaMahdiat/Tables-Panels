@@ -2,14 +2,14 @@
 // Include the database connection file
 require_once('dbconnection.php');
 
-// Check if the manga ID is passed via the URL
+// Check if the manga name is passed via the URL
 if (isset($_GET['Name'])) {
-    $manga_id = $_GET['Name'];
+    $manga_name = $_GET['Name'];
 
-    // Query to fetch manga details by manga_id
+    // Query to fetch manga details by name
     $query = "SELECT * FROM manga WHERE Name = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $manga_id);  // Bind the manga ID (integer)
+    $stmt->bind_param("s", $manga_name); // Bind the manga name (string)
     $stmt->execute();
     $result = $stmt->get_result();
     
@@ -21,7 +21,7 @@ if (isset($_GET['Name'])) {
         $manga = null;
     }
 } else {
-    // If no manga ID is provided, set $manga to null
+    // If no manga name is provided, set $manga to null
     $manga = null;
 }
 
@@ -35,7 +35,6 @@ if ($manga) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?php echo htmlspecialchars($manga['Name']); ?> - Manga Details</title>
         <link rel="stylesheet" href="css/style1.css" />
-        
     </head>
     <body>
 
@@ -47,35 +46,26 @@ if ($manga) {
 
     <!-- Navbar -->
     <div class="navbar">
-    <a href="home.php">Home</a>
-    <div class="dropdown">
-        <button class="dropbtn">Genres</button>
-        <div class="dropdown-content">
-            <a href="genre_pg.php?genre=Fantasy">Fantasy</a>
-            <a href="genre_pg.php?genre=Comedy">Comedy</a>
-            <a href="genre_pg.php?genre=Sports">Sports</a>
-            <a href="genre_pg.php?genre=Romance">Romance</a>
-            <a href="genre_pg.php?genre=Action">Action</a>
-            <a href="genre_pg.php?genre=Horror">Horror</a>
+        <a href="home.php">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Genres</button>
+            <div class="dropdown-content">
+                <a href="genre_pg.php?genre=Fantasy">Fantasy</a>
+                <a href="genre_pg.php?genre=Comedy">Comedy</a>
+                <a href="genre_pg.php?genre=Sports">Sports</a>
+                <a href="genre_pg.php?genre=Romance">Romance</a>
+                <a href="genre_pg.php?genre=Action">Action</a>
+                <a href="genre_pg.php?genre=Horror">Horror</a>
+            </div>
+        </div>
+        <a href="logout.php" class="right">Log Out</a>
+        <div class="search-container">
+            <form action="search.php" method="GET">
+                <input type="text" placeholder="Search for Manga.." name="query" required>
+                <button type="submit">Go</button>
+            </form>
         </div>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn">My Bookmarks</button>
-      <div class="dropdown-content">
-        <a href="bookmarked_manga_pg.html">Manga</a>
-        <a href="bookmarked_novel_pg.html">Novel</a>       
-      </div>
-    </div>
-    
-    <a href="logout.php" class="right">Log Out</a>
-    <div class="search-container">
-    <form action="search.php" method="GET">
-        <input type="text" placeholder="Search for Manga.." name="query" required>
-        <button type="submit">Go</button>
-    </form>
-</div>
-</div>
-
 
     <!-- Manga Details -->
     <div class="container">
@@ -125,7 +115,7 @@ if ($manga) {
     </html>
     <?php
 } else {
-    // Handle the case where no manga was found or no ID was provided
-    echo "Invalid manga ID.";
+    // Handle the case where no manga was found or no name was provided
+    echo "Invalid manga name.";
 }
 ?>
