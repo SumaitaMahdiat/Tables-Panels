@@ -3,11 +3,11 @@
 require_once('dbconnection.php');
 
 // Check if the manga ID is passed via the URL
-if (isset($_GET['id'])) {
-    $manga_id = $_GET['id'];
+if (isset($_GET['Name'])) {
+    $manga_id = $_GET['Name'];
 
     // Query to fetch manga details by manga_id
-    $query = "SELECT * FROM manga WHERE Manga_id = ?";
+    $query = "SELECT * FROM manga WHERE Name = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $manga_id);  // Bind the manga ID (integer)
     $stmt->execute();
@@ -34,238 +34,8 @@ if ($manga) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?php echo htmlspecialchars($manga['Name']); ?> - Manga Details</title>
-        <link rel="stylesheet" href="style.css">
-        <style>
-            /* Include your previous CSS here */
-            * {box-sizing: border-box;}
-            body {
-                font-family: "Fredoka", sans-serif;
-                background-color: #f4f4f4;
-                margin: 0;
-                padding: 0;
-            }
-            .header {
-                padding: 10px;
-                text-align: center;
-                background: #1abc9c;
-                color: white;
-            }
-            .header h1 {
-                font-size: 40px;
-            }
-           /* Links inside the navbar */
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-/* The dropdown container */
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
-}
-
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-.navbar {
-    overflow: hidden;
-    background-color: #333; /* Ensures the navbar stays dark */
-    font-family: Arial;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown a.right {
-  float: right; /* Float a link to the right */
-}
-
-
-/* Right-aligned link */
-.navbar a.right {
-  float: right; /* Float a link to the right */
-}
-
-.topnav a.active {
-  background-color: #2196F3;
-  color: white;
-}
-
-.topnav .search-container {
-    float: right;
-  
-}
-
-.topnav input[type=text] {
-  padding: 6px;
-  /*margin-top: 8px;*/
-  font-size: 17px;
-  border: none;
-  width: 100%;
-  margin: 0;
-  
-}
-
-
-.search-container {
-    float: none; /* Remove float */
-    display: flex;
-    align-items: center; /* Vertically align items */
-    justify-content: flex-end; /* Align to the right, or use center if needed */
-    gap: 5px; /* Space between input and button */
-    height: 100%; /* Ensure it fills the navbar height */
-}
-
-.search-container input[type="text"] {
-    padding: 8px 12px; /* Add padding for better text spacing */
-    font-size: 16px;
-    border: 1px solid #ccc; /* Subtle border */
-    border-radius: 4px; /* Rounded corners */
-    outline: none; /* Remove default outline */
-    width: 300px; /* Longer search bar */
-    transition: border 0.3s ease;
-}
-
-.search-container input[type="text"]:focus {
-    border: 1px solid #1abc9c; /* Highlight border on focus */
-}
-
-.search-container button {
-    padding: 8px 14px;
-    background-color: #1abc9c; /* Match header color */
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.search-container button:hover {
-    background-color: #16a085; /* Slightly darker on hover */
-}
-
-
-
-.topnav .search-container button:hover {
-  background: #ccc;
-}
-            .title-section {
-                display: flex;
-                align-items: flex-start;
-                gap: 20px;
-                margin: 20px 0;
-            }
-            .title-section img {
-                width: 200px;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
-            .title-details {
-                flex: 1;
-            }
-            .title-details h1 {
-                font-size: 28px;
-                margin: 0 0 10px;
-            }
-            .title-details p {
-                margin: 5px 0;
-                font-size: 16px;
-            }
-            .metadata {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                margin: 10px 0;
-            }
-            .metadata span {
-                background-color: #e5e5e5;
-                padding: 5px 10px;
-                border-radius: 5px;
-                font-size: 14px;
-            }
-            .action-buttons {
-                margin-top: 10px;
-                display: flex;
-                gap: 10px;
-            }
-            .action-buttons button {
-                padding: 10px 15px;
-                background-color: #121314;
-                color: #fff;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            .action-buttons button:hover {
-                background-color: #6b7278;
-            }
-            .description {
-                margin-top: 20px;
-                background-color: white;
-                padding: 20px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                border-radius: 8px;
-            }
-            .footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background-color: black;
-                color: white;
-                text-align: center;
-                padding: 10px 0;
-            }
-        </style>
+        <link rel="stylesheet" href="css/style1.css" />
+        
     </head>
     <body>
 
@@ -299,11 +69,11 @@ if ($manga) {
     
     <a href="logout.php" class="right">Log Out</a>
     <div class="search-container">
-        <form action="search.php" method="GET">
-            <input type="text" placeholder="Search for Manga..." name="search">
-            <button type="submit">Go</button>
-        </form>
-    </div>
+    <form action="search.php" method="GET">
+        <input type="text" placeholder="Search for Manga.." name="query" required>
+        <button type="submit">Go</button>
+    </form>
+</div>
 </div>
 
 
