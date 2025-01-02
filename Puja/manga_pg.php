@@ -1,7 +1,7 @@
 <?php
 // Include the database connection file
 require_once('dbconnection.php');
-
+require_once( 'header.php'); 
 // Check if the manga name is passed via the URL
 if (isset($_GET['Name'])) {
     $manga_name = $_GET['Name'];
@@ -38,43 +38,7 @@ if ($manga) {
     </head>
     <body>
 
-    <!-- Header -->
-    <div class="header">
-        <h1>TALES & PANELS</h1>
-        <p>A getaway to the world of manga and novels</p>
-    </div>
-
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="home.php">Home</a>
-        <div class="dropdown">
-            <button class="dropbtn">Genres</button>
-            <div class="dropdown-content">
-                <a href="genre_pg.php?genre=Fantasy">Fantasy</a>
-                <a href="genre_pg.php?genre=Comedy">Comedy</a>
-                <a href="genre_pg.php?genre=Sports">Sports</a>
-                <a href="genre_pg.php?genre=Romance">Romance</a>
-                <a href="genre_pg.php?genre=Action">Action</a>
-                <a href="genre_pg.php?genre=Horror">Horror</a>
-            </div>
-        </div>
-        <div class="dropdown">
-      <button class="dropbtn">My Bookmarks</button>
-      <div class="dropdown-content">
-        <a href="bookmarked_manga_pg.html">Manga</a>
-        <a href="bookmarked_novel_pg.html">Novel</a>       
-      </div>
-    </div>
-        <a href="logout.php" class="right">Log Out</a>
-
-        <div class="search-container">
-            <form action="search.php" method="GET">
-                <input type="text" placeholder="Search for Manga.." name="query" required>
-                <button type="submit">Go</button>
-            </form>
-        </div>
-    </div>
-
+   
     <!-- Manga Details -->
     <div class="container">
         <div class="title-section">
@@ -100,18 +64,21 @@ if ($manga) {
         </div>
 
         <!-- Chapters -->
-        <div class="description">
-            <h2>Chapters</h2>
-            <ul>
-                <?php
-                // Assuming the 'Chapters' field contains a comma-separated list of chapters
-                $chapters = explode(',', $manga['Chapters']);
-                foreach ($chapters as $chapter) {
-                    echo "<li><a href='#'>Chapter " . htmlspecialchars($chapter) . "</a></li>";
-                }
-                ?>
-            </ul>
-        </div>
+        <<div class="chapter-list">
+    <h2>Chapters</h2>
+    <ul>
+        <li><a href="#">Chapter 1</a></li>
+        <li><a href="#">Chapter 2</a></li>
+        <li><a href="#">Chapter 3</a></li>
+        <li><a href="#">Chapter 4</a></li>
+        <li><a href="#">Chapter 5</a></li>
+        <li><a href="#">Chapter 6</a></li>
+        <li><a href="#">Chapter 7</a></li>
+        <li><a href="#">Chapter 8</a></li>
+        <li><a href="#">Chapter 9</a></li>
+        <li><a href="#">Chapter 10</a></li>
+    </ul>
+</div>
     </div>
 
     <!-- Footer -->
@@ -127,4 +94,3 @@ if ($manga) {
     echo "Invalid manga name.";
 }
 ?>
-
