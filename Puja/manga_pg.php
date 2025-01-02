@@ -48,8 +48,7 @@ if ($manga) {
                 <p><strong>Author:</strong> <?php echo htmlspecialchars($manga['Author']); ?></p>
                 <p><strong>Genre:</strong> <?php echo htmlspecialchars($manga['Genre']); ?></p>
                 <p><strong>Rating:</strong> <?php echo htmlspecialchars($manga['Rating']); ?> / 5</p>
-                <p><strong>Review:</strong> <?php echo htmlspecialchars($manga['Review']); ?></p>
-
+                
                 <div class="action-buttons">
                     <button>Like</button>
                     <button>Bookmark</button>
@@ -78,7 +77,10 @@ if ($manga) {
         <li><a href="#">Chapter 9</a></li>
         <li><a href="#">Chapter 10</a></li>
     </ul>
+    <p><strong>Review:</strong> <?php echo htmlspecialchars($manga['Review']); ?></p>
+
 </div>
+            
     </div>
 
     <!-- Footer -->
