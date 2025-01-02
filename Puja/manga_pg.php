@@ -39,7 +39,7 @@ if ($manga) {
             /* Include your previous CSS here */
             * {box-sizing: border-box;}
             body {
-                font-family: Arial, Helvetica, sans-serif;
+                font-family: "Fredoka", sans-serif;
                 background-color: #f4f4f4;
                 margin: 0;
                 padding: 0;
@@ -53,25 +53,149 @@ if ($manga) {
             .header h1 {
                 font-size: 40px;
             }
-            .navbar {
-                overflow: hidden;
-                background-color: #333;
-                font-family: Arial;
-            }
-            .navbar a {
-                float: left;
-                font-size: 16px;
-                color: white;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }
-            .navbar a:hover {
-                background-color: red;
-            }
-            .navbar .right {
-                float: right;
-            }
+           /* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+.navbar {
+    overflow: hidden;
+    background-color: #333; /* Ensures the navbar stays dark */
+    font-family: Arial;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown a.right {
+  float: right; /* Float a link to the right */
+}
+
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right; /* Float a link to the right */
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+    float: right;
+  
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  /*margin-top: 8px;*/
+  font-size: 17px;
+  border: none;
+  width: 100%;
+  margin: 0;
+  
+}
+
+
+.search-container {
+    float: none; /* Remove float */
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: flex-end; /* Align to the right, or use center if needed */
+    gap: 5px; /* Space between input and button */
+    height: 100%; /* Ensure it fills the navbar height */
+}
+
+.search-container input[type="text"] {
+    padding: 8px 12px; /* Add padding for better text spacing */
+    font-size: 16px;
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 4px; /* Rounded corners */
+    outline: none; /* Remove default outline */
+    width: 300px; /* Longer search bar */
+    transition: border 0.3s ease;
+}
+
+.search-container input[type="text"]:focus {
+    border: 1px solid #1abc9c; /* Highlight border on focus */
+}
+
+.search-container button {
+    padding: 8px 14px;
+    background-color: #1abc9c; /* Match header color */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #16a085; /* Slightly darker on hover */
+}
+
+
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
             .title-section {
                 display: flex;
                 align-items: flex-start;
@@ -153,28 +277,35 @@ if ($manga) {
 
     <!-- Navbar -->
     <div class="navbar">
-        <a href="home.php">Home</a>
-        <!--<a href="genre_pg.php">Genre</a>-->
-        <a href="logout.php" class="right">Log Out</a>
-        <a href="my_bookmarks.html" class="right">My Bookmarks</a>
-        <div class="dropdown">
-      <button class="dropbtn">Genres</button>
+    <a href="home.php">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Genres</button>
+        <div class="dropdown-content">
+            <a href="genre_pg.php?genre=Fantasy">Fantasy</a>
+            <a href="genre_pg.php?genre=Comedy">Comedy</a>
+            <a href="genre_pg.php?genre=Sports">Sports</a>
+            <a href="genre_pg.php?genre=Romance">Romance</a>
+            <a href="genre_pg.php?genre=Action">Action</a>
+            <a href="genre_pg.php?genre=Horror">Horror</a>
+        </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">My Bookmarks</button>
       <div class="dropdown-content">
-        <a href="genre_pg.php?genre=Fantasy">Fantasy</a>
-        <a href="genre_pg.php?genre=Comedy">Comedy</a>
-        <a href="genre_pg.php?genre=Fantasy">Sports</a>
-        <a href="genre_pg.php?genre=Fantasy">Romance</a>
-        <a href="genre_pg.php?genre=Fantasy">Action</a>
-        <a href="genre_pg.php?genre=Fantasy">Horror</a>                 
-      </div>    
-         <!-- Search bar -->
+        <a href="bookmarked_manga_pg.html">Manga</a>
+        <a href="bookmarked_novel_pg.html">Novel</a>       
+      </div>
+    </div>
+    
+    <a href="logout.php" class="right">Log Out</a>
     <div class="search-container">
-      <form action="search.php" method="GET">
-        <input type="text" placeholder="Search for Manga.." name="search">
-        <button type="submit">Go</button>
-      </form>
+        <form action="search.php" method="GET">
+            <input type="text" placeholder="Search for Manga..." name="search">
+            <button type="submit">Go</button>
+        </form>
     </div>
-    </div>
+</div>
+
 
     <!-- Manga Details -->
     <div class="container">
