@@ -1,83 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once('dbconnection.php');
+$novel = "SELECT Name, Genre, Covers, Chapters FROM webnovels order by ID";
+$manga = "SELECT Name, Genre, Covers, Chapters FROM manga ORDER BY ID";
+$res1 = mysqli_query($conn, $manga);
+$res2 = mysqli_query($conn, $novel);
+$mangaList = mysqli_fetch_all($res1, MYSQLI_ASSOC);
+$novellist  =  mysqli_fetch_all($res2, MYSQLI_ASSOC);
+mysqli_free_result($res1);
+mysqli_free_result($res2);
+mysqli_close($conn);
+?>
+
+<!DOCTYPE>
+<html>
+<?php require_once('header.php'); ?>
+
 <head>
-<title>Page Title</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style1.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:rgb(18, 18, 18);
+            color: #ffffff;
+        }
 
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color:rgb(30, 30, 30);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
+        .card p {
+            margin: 5px 0;
+        }
+
+        .status {
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .status.active {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .status.hiatus {
+            background-color: #f44336;
+            color: #fff;
+        }
+        .card {
+    background-color: rgb(30, 30, 30);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.2s;
+    text-decoration: none; /* Ensures no underline for links */
+    color: #ffffff; /* Ensures text color is consistent */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+    </style>
 </head>
-<body>
 
-<!--<h1>My Website</h1>
-<p>A website created by me.</p>-->
+<h1 style="text-align: center; padding: 20px;">Manga & Webtoon Gallery</h1>
 
-
-
-<div class="header">
-    <h1>TALES & PANELS</h1>
-    <p>A getaway to the world of manga and novels</p>
-  </div>
-
-  <div class="navbar">
-    <a class="active" href="#home">Home</a>   
-    <a href="logout.php" class="right">Log Out</a>
-    
-    <div class="dropdown">
-      <button class="dropbtn">Genres</button>
-      <div class="dropdown-content">
-        <a href="genre_pg.php?genre=Fantasy">Fantasy</a>
-        <a href="genre_pg.php?genre=Comedy">Comedy</a>
-        <a href="genre_pg.php?genre=Sports">Sports</a>
-        <a href="genre_pg.php?genre=Romance">Romance</a>
-        <a href="genre_pg.php?genre=Action">Action</a>
-        <a href="genre_pg.php?genre=Horror">Horror</a>                 
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">My Bookmarks</button>
-      <div class="dropdown-content">
-        <a href="bookmarked_manga_pg.html">Manga</a>
-        <a href="bookmarked_novel_pg.html">Novel</a>       
-      </div>
-    </div>
-   
-    <div class="dropdown" style="float:right;">
-      <button class="dropbtn">My Profile</button>
-      <div class="dropdown-content">
-        <a href="#">Username</a>
-        <a href="#">Email</a>
-        <a href="C:\xampp\htdocs\tables\370-project\Change password\change_pw.html">Change Password</a>
-      </div>
-    </div>
-    <div class="search-container">
-            <form action="search.php" method="GET">
-                <input type="text" placeholder="Search for Manga.." name="query" required>
-                <button type="submit">Go</button>
-            </form>
-        </div>
-  </div>  
+<div class="gallery">
+    <?php foreach ($mangaList as $manga): ?>
+        <a href="manga_pg.php?Name=<?php echo urlencode($manga['Name']); ?>" class="card">
+            <img src="<?php echo htmlspecialchars($manga['Covers']); ?>" alt="<?php echo htmlspecialchars($manga['Name']); ?>">
+            <h3><?php echo htmlspecialchars($manga['Name']); ?></h3>
+            <p><?php echo htmlspecialchars($manga['Genre']); ?></p>
+            <p><?php echo htmlspecialchars($manga['Chapters']); ?> Chapters</p>
+        </a>
+    <?php endforeach; ?>
+</div>
 
 
-  <ul class="breadcrumb">
-    <li><a href="#">Home</a></li>    
-  </ul>
- 
- 
-  <div class="row">
-    <div class="column" style="background-color:#aaa;">
-      <h2>Column 1</h2>
-      <p>Some text..</p>
-    </div>
-    <div class="column" style="background-color:#bbb;">
-      <h2>Column 2</h2>
-      <p>Some text..</p>
-    </div>
-  </div>
-  
-  <div class="footer">
-    <p>Footer</p>
-  </div> 
+<h1 style="text-align: center; padding: 20px;">Webnovel Gallery</h1>
+<div class="gallery">
+    <?php foreach ($novellist as $novel): ?>
+        <a href="novel_pg.php?Name=<?php echo urlencode($novel['Name']); ?>" class="card">
+            <img src="<?php echo htmlspecialchars($novel['Covers']); ?>" alt="<?php echo htmlspecialchars($novel['Name']); ?>">
+            <h3><?php echo htmlspecialchars($novel['Name']); ?></h3>
+            <p><?php echo htmlspecialchars($novel['Genre']); ?></p>
+            <p><?php echo htmlspecialchars($novel['Chapters']); ?> Chapters</p>
+        </a>
+    <?php endforeach; ?>
+</div>
 
-</body>
+    </body>
+
 </html>
+<?php include('footer.php'); ?>
