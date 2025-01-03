@@ -37,7 +37,10 @@ if ($novel) {
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-
+    <ul class="breadcrumb">
+    <li><a href="home.php">Home</a></li> 
+    <li><?php echo htmlspecialchars($novel['Name']); ?></li> 
+    </ul>
    
     <!-- Novel Details -->
     <div class="container">
