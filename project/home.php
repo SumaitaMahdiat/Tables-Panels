@@ -1,6 +1,6 @@
 <?php
 require_once("dbconnection.php");
-require_once("hdr.php");
+require_once("header.php");
 
 $novel = "SELECT Name, Genre, Covers,Author, Chapters FROM webnovels order by ID";
 $manga = "SELECT Name, Genre, Covers,Author, Chapters FROM manga ORDER BY ID";
