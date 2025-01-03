@@ -54,7 +54,8 @@ if ($novel) {
                 <p><strong>Author:</strong> <?php echo htmlspecialchars($novel['Author']); ?></p>
                 <p><strong>Genre:</strong> <?php echo htmlspecialchars($novel['Genre']); ?></p>
                 <p><strong>Rating:</strong> <?php echo htmlspecialchars($novel['Rating']); ?> / 5</p>
-                
+                <p><strong>Review:</strong> <?php echo htmlspecialchars($manga['Review']); ?></p>
+
 
                 <div class="action-buttons">
                     <button>Like</button>
@@ -84,7 +85,7 @@ if ($novel) {
         <li><a href="#">Chapter 9</a></li>
         <li><a href="#">Chapter 10</a></li>
     </ul>
-    <p><strong>Review:</strong> <?php echo htmlspecialchars($novel['Review']); ?></p>
+   
 </div>
     </div>
 
