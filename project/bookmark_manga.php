@@ -1,7 +1,7 @@
 <?php
 // Include the database connection file
 require_once('dbconnection.php');
-require_once( 'hdr.php'); 
+require_once( 'header.php'); 
 
 
 
@@ -35,7 +35,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Genres - Manga Details</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
