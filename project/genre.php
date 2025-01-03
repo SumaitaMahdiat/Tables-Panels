@@ -33,18 +33,18 @@ if ($conn->connect_error) {
 $conn->close();
 ?>
 
-<?php require_once("hdr.php"); ?>
+<?php require_once("header.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Genres - Manga Details</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <ul class="breadcrumb">
-    <li><a href="genz.php">Home</a></li> 
+    <li><a href="home.php">Home</a></li> 
     <li><?php echo htmlspecialchars($genre); ?> Genre</li> 
   </ul>
     <div class="content">
@@ -56,7 +56,7 @@ $conn->close();
                         <img src="<?php echo htmlspecialchars($row['covers']); ?>" alt="Cover Image" class="manga-cover">
                     </div>
                     <div class="manga-right">
-                        <a href="manga_pg.php?Name=<?php echo urlencode($row['name']); ?>">
+                        <a href="manga_page.php?Name=<?php echo urlencode($row['name']); ?>">
                             <strong><?php echo htmlspecialchars($row['name']); ?></strong>
                         </a>
                         <p>Author: <?php echo htmlspecialchars($row['author']); ?></p>
@@ -76,7 +76,7 @@ $conn->close();
                     <img src="<?php echo htmlspecialchars($row['covers']); ?>" alt="Cover Image" class="manga-cover">
                 </div>
                 <div class="manga-right">
-                    <a href="novel_pg.php?Name=<?php echo urlencode($row['name']); ?>">
+                    <a href="novel_page.php?Name=<?php echo urlencode($row['name']); ?>">
                         <strong><?php echo htmlspecialchars($row['name']); ?></strong>
                     </a>
                     <p>Author: <?php echo htmlspecialchars($row['author']); ?></p>
