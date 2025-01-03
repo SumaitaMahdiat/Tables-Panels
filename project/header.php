@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
     <title>Website Title</title> 
 </head>
 <body>
@@ -17,7 +17,7 @@
 
     <!-- Navbar -->
     <div class="navbar">
-        <a class="active" href="genz.php">Home</a>
+        <a class="active" href="home.php">Home</a>
         <div class="dropdown">
             <button class="dropbtn">Genres</button>
             <div class="dropdown-content">
@@ -32,8 +32,8 @@
         <div class="dropdown">
             <button class="dropbtn">My Bookmarks</button>
             <div class="dropdown-content">
-                <a href="bookmarks-manga.php">Manga</a>
-                <a href="bookmarks-novel.php">Novel</a>       
+                <a href="bookmark_manga.php">Manga</a>
+                <a href="bookmark_novel.php">Novel</a>       
             </div>
         </div>
         <a href="logout.php" class="right">Log Out</a>
