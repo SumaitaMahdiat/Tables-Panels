@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,17 +20,14 @@
         <div class="nav_logo">
           <h1><a href="index.php">Tales & Panels</a></h1>
         </div>
-        <ul class="nav_link">
-          <!-- <li><a href="show_students.php">Students</a></li>
-          <li><a href="#">Teachers</a></li> -->
-        </ul>
+       
       </nav>
     </header>
     <main>
       <section class="login">
         <div class="login_box">
           <h1>Login</h1>
-          <form class="login_form" action="login.php" method="post">
+          <form class="login_form" action="login_process.php" method="post">
             <input
               type="text"
               id="username"
@@ -47,7 +44,7 @@
           </form>
           <div class="links">
             <p>Don't Have an account yet?</p>
-            <a href="sign_up.php"><button id="SignUpButton">Sign up</button></a>
+            <a href="signup.php"><button id="SignUpButton">Sign up</button></a>
           </div>
         </div>
       </section>
