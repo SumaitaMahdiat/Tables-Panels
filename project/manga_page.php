@@ -64,7 +64,7 @@ if ($manga) {
         </div>
 
         <!-- Chapters -->
-        <<div class="chapter-list">
+        <div class="chapter-list">
     <h2>Chapters</h2>
     <ul>
         <li><a href="#">Chapter 1</a></li>
