@@ -49,6 +49,7 @@ if ($manga) {
                 <p><strong>Genre:</strong> <?php echo htmlspecialchars($manga['Genre']); ?></p>
                 <p><strong>Rating:</strong> <?php echo htmlspecialchars($manga['Rating']); ?> / 5</p>
                 
+
                 <div class="action-buttons">
                     <button>Like</button>
                     <button>Bookmark</button>
@@ -78,15 +79,11 @@ if ($manga) {
         <li><a href="#">Chapter 10</a></li>
     </ul>
     <p><strong>Review:</strong> <?php echo htmlspecialchars($manga['Review']); ?></p>
-
 </div>
-            
     </div>
 
     <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2025 Tales & Panels. All Rights Reserved.</p>
-    </div>
+    <?php include('footer.php'); ?>
 
     </body>
     </html>
