@@ -25,42 +25,7 @@ if ($conn->connect_error) {
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Genres - Manga Details</title>
-    <link rel="stylesheet" href="css/style1.css" />
-</head>
-<body>
-    <div class="header">
-        <h1>TALES & PANELS</h1>
-        <p>A getaway to the world of manga and novels</p>
-    </div>
-
-    <div class="navbar">
-        <a href="home.php">Home</a>
-        <a href="logout.php" class="right">Log Out</a>
-        <div class="dropdown">
-            <button class="dropbtn">Genres</button>
-            <div class="dropdown-content">
-                <a href="genre_pg.php?genre=Fantasy">Fantasy</a>
-                <a href="genre_pg.php?genre=Comedy">Comedy</a>
-                <a href="genre_pg.php?genre=Sports">Sports</a>
-                <a href="genre_pg.php?genre=Romance">Romance</a>
-                <a href="genre_pg.php?genre=Action">Action</a>
-                <a href="genre_pg.php?genre=Horror">Horror</a>
-            </div>
-        </div>
-        <div class="search-container">
-            <form action="search.php" method="GET">
-                <input type="text" placeholder="Search for Manga.." name="query" required>
-                <button type="submit">Go</button>
-            </form>
-        </div>
-    </div>
-
+<?php require_once("header.php"); ?>
     <div class="content">
         <?php if ($result && $result->num_rows > 0): ?>
             <h2>Manga in <?php echo htmlspecialchars($genre); ?> Genre:</h2>
@@ -82,8 +47,6 @@ $conn->close();
         <?php endif; ?>
     </div>
 
-    <div class="footer">
-        <p>Footer</p>
-    </div>
+    <?php include('footer.php'); ?>
 </body>
 </html>
