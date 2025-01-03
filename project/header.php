@@ -18,6 +18,15 @@
     <!-- Navbar -->
     <div class="navbar">
         <a class="active" href="home.php">Home</a>
+        <!-- My Profile Dropdown -->
+        <div class="dropdown">
+            <button class="dropbtn">My Profile</button>
+            <div class="dropdown-content">
+                <a href="#">Username</a>
+                <a href="#">Email</a>
+                <a href="change_pw.html">Change Password</a>
+            </div>
+        </div>
         <div class="dropdown">
             <button class="dropbtn">Genres</button>
             <div class="dropdown-content">
