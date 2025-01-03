@@ -140,8 +140,8 @@ main {
   cursor: pointer;
   font-size: 16px;
   padding: 16px;
-  width: 100%; /* Ensures the button matches the input width */
-  margin-top: 20px; /* Optional: Adds spacing above the button */
+  width: 100%; 
+  margin-top: 20px;
 }
 
 .login_box button:hover {
