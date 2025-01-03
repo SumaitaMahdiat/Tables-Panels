@@ -137,7 +137,8 @@ if ($manga) {
             <h2>Summary</h2>
             <p><?php echo htmlspecialchars($manga['Summary']); ?></p>
         </div>
-
+        <h3 class="extra-info">Extra Info:</h3>
+        <div>Support the author by buying their work!</div>
         <!-- Chapters -->
         <div class="chapter-list">
     <h2>Chapters</h2>
