@@ -16,6 +16,8 @@ if (isset($_GET['Name'])) {
     if ($result->num_rows > 0) {
         // Fetch the manga details
         $manga = $result->fetch_assoc();
+        $Covers = $manga["Covers"]; 
+        $imageUrl = "Covers for Tables/".$Covers;
     } else {
         // If no results are found, set $manga to null
         $manga = null;
@@ -38,14 +40,14 @@ if ($manga) {
     </head>
     <body>
 
-   <ul class="breadcrumb">
+    <ul class="breadcrumb">
     <li><a href="home.php">Home</a></li> 
     <li><?php echo htmlspecialchars($manga['Name']); ?></li> 
     </ul>
     <!-- Manga Details -->
     <div class="container">
         <div class="title-section">
-            <img src="<?php echo htmlspecialchars($manga['Covers']); ?>" alt="<?php echo htmlspecialchars($manga['Name']); ?> Cover">
+        <?php echo "<img src='$imageUrl'>"; ?>
             <div class="title-details">
                 <h1><?php echo htmlspecialchars($manga['Name']); ?></h1>
                 <p><strong>Author:</strong> <?php echo htmlspecialchars($manga['Author']); ?></p>
