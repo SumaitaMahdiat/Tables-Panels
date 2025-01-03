@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Include the database connection file
 require_once('dbconnection.php');
 require_once( 'header.php'); 
@@ -27,6 +28,57 @@ if (isset($_GET['Name'])) {
     $manga = null;
 }
 
+
+if (!$manga) {
+    die("Manga not found.");
+}
+
+// Handle Like Button
+if (isset($_POST['action']) && $_POST['action'] === 'like') {
+    $manga_id = $manga['ID']; // Assuming manga has an `ID` column
+    $query = "UPDATE manga SET Likes = Likes + 1 WHERE ID = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $manga_id);
+    if ($stmt->execute()) {
+        echo "Like added successfully!<br>";
+    } else {
+        echo "Error: " . $stmt->error . "<br>";
+    }
+    $stmt->close();
+}
+
+// Handle Bookmark Button
+if (isset($_POST['action']) && $_POST['action'] === 'bookmark') {
+    $username = $_SESSION['username']; // Assuming the username is stored in the session
+    $manga_name = $manga['Name']; // Assuming the manga name is used as the identifier
+
+    // First, check if the bookmark already exists
+    $checkQuery = "SELECT * FROM bookmarks WHERE Reader_Name = ? AND Product_Name = ?";
+    $stmt = $conn->prepare($checkQuery);
+    $stmt->bind_param("ss", $username, $manga_name);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Bookmark already exists
+        echo "Bookmark already exists!<br>";
+    } else {
+        // Bookmark doesn't exist, insert it
+        $insertQuery = "INSERT INTO bookmarks (Reader_Name, Product_Name) VALUES (?, ?)";
+        $stmt = $conn->prepare($insertQuery);
+        $stmt->bind_param("ss", $username, $manga_name);
+
+        if ($stmt->execute()) {
+            echo "Bookmark added successfully!<br>";
+        } else {
+            echo "Error: " . $stmt->error . "<br>";
+        }
+    }
+    $stmt->close();
+}
+
+
+
 // Check if $manga is not null before trying to access its values
 if ($manga) {
     ?>
@@ -53,19 +105,37 @@ if ($manga) {
                 <p><strong>Author:</strong> <?php echo htmlspecialchars($manga['Author']); ?></p>
                 <p><strong>Genre:</strong> <?php echo htmlspecialchars($manga['Genre']); ?></p>
                 <p><strong>Rating:</strong> <?php echo htmlspecialchars($manga['Rating']); ?> / 5</p>
+                <p><strong></strong> <?php echo htmlspecialchars($manga['Likes']); ?> reader(s) liked this manga.</p>
                 <p><strong>Review:</strong> <?php echo htmlspecialchars($manga['Review']); ?></p>
+                <div class="video-section">
+        <?php if (!empty($manga['YT_Link'])): ?>
+            <?php
+            // Convert the yt_link to an embeddable YouTube URL
+            $embedUrl = str_replace("watch?v=", "embed/", $manga['YT_Link']);
+            // Append autoplay=1 to ensure the video plays automatically
+            $embedUrl .= "?autoplay=1&enablejsapi=1&autohide=1&showinfo=0";
+            ?>
+            <div class="video-container">
+                <iframe src="<?php echo htmlspecialchars($embedUrl); ?>" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        <?php else: ?>
+            <p>No video available for this manga.</p>
+        <?php endif; ?>
+    </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
                 <div class="action-buttons">
-                    <button>Like</button>
-                    <button>Bookmark</button>
+                <button type="submit" name="action" value="like">Like</button>
+                <button type="submit" name="action" value="bookmark">Bookmark</button>
+                
                 </div>
             </div>
         </div>
 
         <!-- Description -->
         <div class="description">
-            <h2>Description</h2>
-            <p><?php echo htmlspecialchars($manga['Review']); ?></p>
+            <h2>Summary</h2>
+            <p><?php echo htmlspecialchars($manga['Summary']); ?></p>
         </div>
 
         <!-- Chapters -->
@@ -86,6 +156,23 @@ if ($manga) {
 </div>
     </div>
 
+    <div class="video-section">
+        <?php if (!empty($manga['YT_Link'])): ?>
+            <?php
+            // Convert the yt_link to an embeddable YouTube URL
+            $embedUrl = str_replace("watch?v=", "embed/", $manga['YT_Link']);
+            // Append autoplay=1 to ensure the video plays automatically
+            $embedUrl .= "?autoplay=1&enablejsapi=1&autohide=1&showinfo=0";
+            ?>
+            <div class="video-container">
+                <iframe src="<?php echo htmlspecialchars($embedUrl); ?>" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        <?php else: ?>
+            <p>No video available for this manga.</p>
+        <?php endif; ?>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
     
     <?php include('footer.php'); ?>
 
