@@ -83,9 +83,7 @@ if ($novel) {
     </div>
 
     <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2025 Tales & Panels. All Rights Reserved.</p>
-    </div>
+    <?php include('footer.php'); ?>
 
     </body>
     </html>
