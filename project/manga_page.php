@@ -1,7 +1,7 @@
 <?php
 // Include the database connection file
 require_once('dbconnection.php');
-require_once( 'hdr.php'); 
+require_once( 'header.php'); 
 // Check if the manga name is passed via the URL
 if (isset($_GET['Name'])) {
     $manga_name = $_GET['Name'];
@@ -34,7 +34,7 @@ if ($manga) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?php echo htmlspecialchars($manga['Name']); ?> - Manga Details</title>
-        <link rel="stylesheet" href="style1.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
 
@@ -81,10 +81,8 @@ if ($manga) {
 </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2025 Tales & Panels. All Rights Reserved.</p>
-    </div>
+    
+    <?php include('footer.php'); ?>
 
     </body>
     </html>
