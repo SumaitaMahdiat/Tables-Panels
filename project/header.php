@@ -30,12 +30,12 @@
         <div class="dropdown">
             <button class="dropbtn">Genres</button>
             <div class="dropdown-content">
-                <a href="genre_pg.php?genre=Fantasy">Fantasy</a>
-                <a href="genre_pg.php?genre=Comedy">Comedy</a>
-                <a href="genre_pg.php?genre=Sports">Sports</a>
-                <a href="genre_pg.php?genre=Romance">Romance</a>
-                <a href="genre_pg.php?genre=Action">Action</a>
-                <a href="genre_pg.php?genre=Horror">Horror</a>
+                <a href="genre.php?genre=Fantasy">Fantasy</a>
+                <a href="genre.php?genre=Comedy">Comedy</a>
+                <a href="genre.php?genre=Sports">Sports</a>
+                <a href="genre.php?genre=Romance">Romance</a>
+                <a href="genre.php?genre=Action">Action</a>
+                <a href="genre.php?genre=Horror">Horror</a>
             </div>
         </div>
         <div class="dropdown">
