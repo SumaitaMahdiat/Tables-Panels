@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search Results</title>
-    <link rel="stylesheet" href="css/style1.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -43,7 +43,7 @@
             while ($manga = $mangaResult->fetch_assoc()) {
                 ?>
                 <div class="manga-result">
-                    <a href="manga_pg.php?Name=<?php echo urlencode($manga['Name']); ?>">
+                    <a href="manga_page.php?Name=<?php echo urlencode($manga['Name']); ?>">
                         <div class="manga-item">
                             <img src="<?php echo htmlspecialchars($manga['Covers']); ?>" alt="<?php echo htmlspecialchars($manga['Name']); ?> Cover">
                             <div class="manga-info">
@@ -65,7 +65,7 @@
             while ($novel = $novelResult->fetch_assoc()) {
                 ?>
                 <div class="manga-result">
-                    <a href="novel_pg.php?Name=<?php echo urlencode($novel['Name']); ?>">
+                    <a href="novel_page.php?Name=<?php echo urlencode($novel['Name']); ?>">
                         <div class="manga-item">
                             <img src="<?php echo htmlspecialchars($novel['Covers']); ?>" alt="<?php echo htmlspecialchars($novel['Name']); ?> Cover">
                             <div class="manga-info">
