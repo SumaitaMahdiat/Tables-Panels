@@ -26,6 +26,19 @@ $conn->close();
 ?>
 
 <?php require_once("header.php"); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Genres - Manga Details</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <ul class="breadcrumb">
+    <li><a href="#">Home</a></li> 
+    <li>Genre-Manga</li> 
+  </ul>
     <div class="content">
         <?php if ($result && $result->num_rows > 0): ?>
             <h2>Manga in <?php echo htmlspecialchars($genre); ?> Genre:</h2>
