@@ -5,6 +5,7 @@ require_once( 'header.php');
 // Check if the novel name is passed via the URL
 if (isset($_GET['Name'])) {
     $novel_name = $_GET['Name'];
+   
 
     // Query to fetch manga details by name
     $query = "SELECT * FROM webnovels WHERE Name = ?";
@@ -16,6 +17,8 @@ if (isset($_GET['Name'])) {
     if ($result->num_rows > 0) {
         // Fetch the manga details
         $novel = $result->fetch_assoc();
+        $Covers = $novel["Covers"]; 
+        $imageUrl = "Covers for Tables/".$Covers;
     } else {
         // If no results are found, set $novel to null
         $novel = null;
@@ -37,15 +40,15 @@ if ($novel) {
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+
     <ul class="breadcrumb">
     <li><a href="home.php">Home</a></li> 
     <li><?php echo htmlspecialchars($novel['Name']); ?></li> 
     </ul>
-   
     <!-- Novel Details -->
     <div class="container">
         <div class="title-section">
-            <img src="<?php echo htmlspecialchars($novel['Covers']); ?>" alt="<?php echo htmlspecialchars($novel['Name']); ?> Cover">
+        <?php echo "<img src='$imageUrl'>"; ?>
             <div class="title-details">
                 <h1><?php echo htmlspecialchars($novel['Name']); ?></h1>
                 <p><strong>Author:</strong> <?php echo htmlspecialchars($novel['Author']); ?></p>
