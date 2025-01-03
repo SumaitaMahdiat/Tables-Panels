@@ -20,7 +20,7 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Manga Gallery</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
 </head>
     
    
@@ -31,7 +31,7 @@ mysqli_close($conn);
         <?php foreach ($mangaList as $manga): ?>
             <div class="card">
                 <img src="<?php echo htmlspecialchars($manga['Covers']); ?>" alt="<?php echo htmlspecialchars($manga['Name']); ?>">
-                <h3><a href="manga_pg.php?Name=<?php echo urlencode($manga['Name']); ?>">
+                <h3><a href="manga_page.php?Name=<?php echo urlencode($manga['Name']); ?>">
                             <strong><?php echo htmlspecialchars($manga['Name']); ?></strong>
                         </a></h3>
                 <p>Author: <?php echo htmlspecialchars($manga['Author']); ?></p>
@@ -46,7 +46,7 @@ mysqli_close($conn);
         <?php foreach ($novellist as $novel): ?>
             <div class="card">
                 <img src="<?php echo htmlspecialchars($novel['Covers']); ?>" alt="<?php echo htmlspecialchars($manga['Name']); ?>">
-                <h3><a href="novel_pg.php?Name=<?php echo urlencode($novel['Name']); ?>">
+                <h3><a href="novel_page.php?Name=<?php echo urlencode($novel['Name']); ?>">
                             <strong><?php echo htmlspecialchars($novel['Name']); ?></strong></a></h3>
                 <p>Author: <?php echo htmlspecialchars($novel['Author']); ?></p>
                 <p>Genre:<?php echo htmlspecialchars($novel['Genre']); ?></p>
@@ -54,7 +54,7 @@ mysqli_close($conn);
             </div>
         <?php endforeach; ?>
     </div>
-    </body>
-
+    <?php include('footer.php'); ?>
+</body>
 </html>
-<?php include('footer.php'); ?>
+
