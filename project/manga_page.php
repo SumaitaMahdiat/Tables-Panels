@@ -38,7 +38,10 @@ if ($manga) {
     </head>
     <body>
 
-   
+   <ul class="breadcrumb">
+    <li><a href="home.php">Home</a></li> 
+    <li><?php echo htmlspecialchars($manga['Name']); ?></li> 
+    </ul>
     <!-- Manga Details -->
     <div class="container">
         <div class="title-section">
