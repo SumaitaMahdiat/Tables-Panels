@@ -4,13 +4,15 @@ require_once("header.php");
 
 $novel = "SELECT Name, Genre, Covers,Author, Chapters FROM webnovels order by ID";
 $manga = "SELECT Name, Genre, Covers,Author, Chapters FROM manga ORDER BY ID";
+
+
 $res1 = mysqli_query($conn, $manga);
 $res2 = mysqli_query($conn, $novel);
 $mangaList = mysqli_fetch_all($res1, MYSQLI_ASSOC);
 $novellist  =  mysqli_fetch_all($res2, MYSQLI_ASSOC);
 mysqli_free_result($res1);
 mysqli_free_result($res2);
-mysqli_close($conn);
+
 ?>
 
 
@@ -30,7 +32,9 @@ mysqli_close($conn);
     <div class="gallery">
         <?php foreach ($mangaList as $manga): ?>
             <div class="card">
-                <img src="<?php echo htmlspecialchars($manga['Covers']); ?>" alt="<?php echo htmlspecialchars($manga['Name']); ?>">
+            
+            <?php   $manga_name = $manga['Name'];
+                    include('image.php'); ?>
                 <h3><a href="manga_page.php?Name=<?php echo urlencode($manga['Name']); ?>">
                             <strong><?php echo htmlspecialchars($manga['Name']); ?></strong>
                         </a></h3>
@@ -38,6 +42,7 @@ mysqli_close($conn);
                 <p>Genre:<?php echo htmlspecialchars($manga['Genre']); ?></p>
                 <p><?php echo htmlspecialchars($manga['Chapters']); ?> Chapters</p>
             </div>
+           
         <?php endforeach; ?>
     </div>
 
@@ -45,7 +50,7 @@ mysqli_close($conn);
     <div class="gallery">
         <?php foreach ($novellist as $novel): ?>
             <div class="card">
-                <img src="<?php echo htmlspecialchars($novel['Covers']); ?>" alt="<?php echo htmlspecialchars($manga['Name']); ?>">
+            <?php echo "<img src='$novelimageUrl'>"; ?>
                 <h3><a href="novel_page.php?Name=<?php echo urlencode($novel['Name']); ?>">
                             <strong><?php echo htmlspecialchars($novel['Name']); ?></strong></a></h3>
                 <p>Author: <?php echo htmlspecialchars($novel['Author']); ?></p>
@@ -57,4 +62,5 @@ mysqli_close($conn);
     <?php include('footer.php'); ?>
 </body>
 </html>
+
 
