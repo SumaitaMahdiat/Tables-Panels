@@ -1,8 +1,8 @@
 <?php
 // Include the database connection file
 require_once('dbconnection.php');
-require_once( 'hdr.php'); 
-// Check if the manga name is passed via the URL
+require_once( 'header.php'); 
+// Check if the novel name is passed via the URL
 if (isset($_GET['Name'])) {
     $novel_name = $_GET['Name'];
 
@@ -17,15 +17,15 @@ if (isset($_GET['Name'])) {
         // Fetch the manga details
         $novel = $result->fetch_assoc();
     } else {
-        // If no results are found, set $manga to null
+        // If no results are found, set $novel to null
         $novel = null;
     }
 } else {
-    // If no manga name is provided, set $manga to null
+    // If no novel name is provided, set $novel to null
     $novel = null;
 }
 
-// Check if $manga is not null before trying to access its values
+// Check if $novel is not null before trying to access its values
 if ($novel) {
     ?>
     <!DOCTYPE html>
@@ -33,13 +33,13 @@ if ($novel) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?php echo htmlspecialchars($novel['Name']); ?> - Manga Details</title>
-        <link rel="stylesheet" href="css/style1.css" />
+        <title><?php echo htmlspecialchars($novel['Name']); ?> - Novel Details</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
 
    
-    <!-- Manga Details -->
+    <!-- Novel Details -->
     <div class="container">
         <div class="title-section">
             <img src="<?php echo htmlspecialchars($novel['Covers']); ?>" alt="<?php echo htmlspecialchars($novel['Name']); ?> Cover">
@@ -82,14 +82,14 @@ if ($novel) {
 </div>
     </div>
 
-    <!-- Footer -->
+
     <?php include('footer.php'); ?>
 
     </body>
     </html>
     <?php
 } else {
-    // Handle the case where no manga was found or no name was provided
-    echo "Invalid manga name.";
+    // Handle the case where no novel was found or no name was provided
+    echo "Invalid novel name.";
 }
 ?>
